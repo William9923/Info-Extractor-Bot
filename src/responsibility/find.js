@@ -8,12 +8,12 @@ function isCommand(flag, Action) {
 
 function createResult(res) {
     let response = "";
-    console.log(res);
     let seperator = res.metadata.seperator.toString();
 
     response += "Pattern Matching Result : \n";
-    res.answer.forEach((r) => {
-        response += r.replace(seperator, "") + "\n";
+    res.answer.forEach((r, index) => {
+        response += (index + 1) + "." + r.split(seperator).join("");
+        response += "\n";
     });
 
     response += "Stats : " + "\n";
@@ -27,15 +27,21 @@ async function MatchText(context) {
     await context.sendText("Please wait ...")
     let res = await text(context.event.text);
     let response = createResult(res);
-    
+
     return await context.sendText(response);
 }
 
 async function MatchURL(context) {
-    await context.sendText("Please wait ...")
-    let res = await scraper(context.event.text)
-    let response = createResult(res);
-    
+    await context.sendText("Please wait ...");
+    let response = "";
+    try {
+        let res = await scraper(context.event.text);
+        response = createResult(res);
+    }
+    catch (err) {
+        response = "Error happened when matching the keyword. Please try again :<";
+    }
+
     return await context.sendText(response);
 }
 
