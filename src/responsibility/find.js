@@ -8,7 +8,7 @@ function isCommand(flag, Action) {
 
 function createResult(res) {
     let response = "";
-    
+    console.log(res);
     let seperator = res.metadata.seperator.toString();
 
     response += "Pattern Matching Result : \n";

@@ -14,7 +14,6 @@ module.exports.text = (command) => {
     }).toString();
     return axios.get(api + '/api/' + version + '/text/?' + params)
       .then((response) => {
-        console.log(response)
         return response.data;
       })
       .catch((error) => console.log(error));
@@ -30,7 +29,6 @@ module.exports.scraper = (command) => {
     }).toString();
     return axios.get(api + '/api/' + version + '/scraper/?' + params)
       .then((response) => {
-        console.log(response)
         return response.data;
       })
       .catch((error) => console.log(error));
