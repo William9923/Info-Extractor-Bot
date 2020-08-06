@@ -1,17 +1,11 @@
-const {withProps, chain} = require('bottender'); 
-const { router, text, route, payload } = require('bottender/router');
+const { chain } = require('bottender');
 
 const { find } = require('./responsibility/find');
 const { instruction } = require('./responsibility/instruction');
 const { unknown } = require('./responsibility/unknown');
 
-
 module.exports = async function App() {
-  return chain([
-    find,
-    instruction,
-    unknown
-  ])
+  return chain([find, instruction, unknown]);
 };
 
 // function isCommand(flag, Action) {
@@ -36,7 +30,7 @@ module.exports = async function App() {
 // }
 
 // function Unknown(context) {
-//   // handling unknown 
+//   // handling unknown
 //   return router([
 //     route('*', HandleUnknown)
 //   ])
@@ -45,6 +39,3 @@ module.exports = async function App() {
 // async function HandleUnknown(context) {
 //   return await context.sendText('Unknown Command or Invalid Command | Please add any kind of action you want to use');
 // }
-
-
-
