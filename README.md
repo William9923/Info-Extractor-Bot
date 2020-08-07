@@ -5,8 +5,8 @@ This project serve as one of presenter for Key Matcher Backend. This bot is spec
 ## Todo
 Current need to do job : 
 - [x] Adding Unitest to the project
-- [ ] Creating handler for each command in line event
-- [ ] Creating extensible so that can be used in other than line component
+- [x] Creating handler for each command in line event
+- [ ] Adding Instruction
 
 ## Available Scripts
 
