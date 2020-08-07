@@ -8,7 +8,7 @@ async function FindInstruction(context) {
   return await context.sendText('Find Instruction!');
 }
 
-module.exports.instruction = function Instruction(context, { next }) {
+module.exports.instruction = (context, { next }) => {
   // add any new additional information here
   return router([
     text(/^!help/i, HelpInstruction),

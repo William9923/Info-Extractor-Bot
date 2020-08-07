@@ -50,7 +50,7 @@ async function MatchURL(context) {
   return await context.sendText(response);
 }
 
-module.exports.find = function Find(context, { next }) {
+module.exports.find = (context, { next }) => {
   return router([
     // add any command here
     isCommand('t', MatchText),

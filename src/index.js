@@ -1,9 +1,9 @@
 const { chain } = require('bottender');
 
-const { find } = require('./responsibility/find');
-const { instruction } = require('./responsibility/instruction');
-const { unknown } = require('./responsibility/unknown');
+const { find } = require('./usecase/find');
+const { instruction } = require('./usecase/instruction');
+const { unknown } = require('./usecase/unknown');
 
-module.exports = async function App() {
+module.exports = async () => {
   return chain([find, instruction, unknown]);
 };

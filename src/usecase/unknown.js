@@ -2,11 +2,11 @@ const { router, route } = require('bottender/router');
 
 async function HandleUnknown(context) {
   return await context.sendText(
-    'Unknown Command or Invalid Command | Please add any kind of action you want to use'
+    `Unknown Command or Invalid Command ${String.fromCodePoint(0x10001c)}`
   );
 }
 
-module.exports.unknown = function Unknown() {
+module.exports.unknown = () => {
   // handling unknown
   return router([route('*', HandleUnknown)]);
 };
