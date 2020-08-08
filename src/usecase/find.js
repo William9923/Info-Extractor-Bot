@@ -1,5 +1,4 @@
 const { router, route } = require('bottender/router');
-
 const { text, scraper } = require('../util/fetcher');
 
 function isCommand(flag, Action) {
@@ -45,6 +44,10 @@ async function MatchURL(context) {
     response = createResult(res);
   } catch (err) {
     response = 'Error happened when matching the keyword. Please try again :<';
+
+    if (err.error != null && err.error == "url") {
+      response = 'Invalid URL. Please input a valid url!';
+    }
   }
 
   return await context.sendText(response);

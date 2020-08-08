@@ -1,11 +1,13 @@
 const axios = require('axios').default;
+const util = require('util');
+const urlExists = util.promisify(require('url-exists'));
 
 const { textParser, urlParser } = require('./parser');
 
 const api = process.env.API_HOST;
 const version = process.env.VERSION;
 
-module.exports.text = (command) => {
+module.exports.text = async (command) => {
   const [keyword, content] = textParser(command);
   const params = new URLSearchParams({
     algo: 'regex',
@@ -17,11 +19,21 @@ module.exports.text = (command) => {
     .then((response) => {
       return response.data;
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.log(error);
+      throw error;
+    });
 };
 
-module.exports.scraper = (command) => {
+module.exports.scraper = async (command) => {
   const [keyword, url] = urlParser(command);
+  let isExists = await urlExists(url);
+  if (!(isExists)) {
+      throw {
+        message : "URL not exist",
+        error : "url"
+      };
+  }
 
   const params = new URLSearchParams({
     algo: 'regex',
