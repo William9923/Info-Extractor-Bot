@@ -26,3 +26,7 @@ jobs:
     - run: npm run lint
     - run: npm run build --if-present
     - run: npm test
+    env:
+      API_HOST:${{ secrets.API_HOST }}
+      VERSION:${{ secrets.VERSION }}
+
