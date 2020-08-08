@@ -6,9 +6,10 @@ name: Node.js CI / CD
 on:
   push:
     branches: [ master ]
+
 env:
-  API_HOST:${{ secrets.API_HOST }}
-  VERSION:${{ secrets.VERSION }}
+  API_HOST: ${{ secrets.API_HOST }}
+  VERSION: ${{ secrets.VERSION }}
 
 jobs:
   build:
