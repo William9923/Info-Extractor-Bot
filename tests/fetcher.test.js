@@ -37,11 +37,9 @@ describe('fetcher.js functionality test', () => {
 
 describe('fetcher.js error check', () => {
   test('test invalid url input on scrapper service check', () => {
-    return scraper(
-      '!find --k sad --u invalid_url'
-    ).catch((err) => {
-      expect(err.error).toEqual("url");
-      expect(err.message).toEqual("URL not exist");
-    })
-  })
-})
+    return scraper('!find --k sad --u invalid_url').catch((err) => {
+      expect(err.error).toEqual('url');
+      expect(err.message).toEqual('URL not exist');
+    });
+  });
+});

@@ -28,11 +28,11 @@ module.exports.text = async (command) => {
 module.exports.scraper = async (command) => {
   const [keyword, url] = urlParser(command);
   let isExists = await urlExists(url);
-  if (!(isExists)) {
-      throw {
-        message : "URL not exist",
-        error : "url"
-      };
+  if (!isExists) {
+    throw {
+      message: 'URL not exist',
+      error: 'url',
+    };
   }
 
   const params = new URLSearchParams({

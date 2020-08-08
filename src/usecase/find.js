@@ -45,7 +45,7 @@ async function MatchURL(context) {
   } catch (err) {
     response = 'Error happened when matching the keyword. Please try again :<';
 
-    if (err.error != null && err.error == "url") {
+    if (err.error != null && err.error == 'url') {
       response = 'Invalid URL. Please input a valid url!';
     }
   }
